@@ -1,0 +1,82 @@
+*{
+    font-family: 'Quicksand', sans-serif;
+    box-sizing: border-box;
+}
+#app{
+    display: grid;
+    place-content: center;
+}
+.app{
+    display: grid;
+    position: relative;
+    place-content: center;
+    row-gap: 10px;
+}
+.error-notFound{
+    position: absolute;
+    left: 5px;
+    top: 35px;
+    color: rgb(214, 119, 10);
+    border: solid 1px orange;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+.form{
+    display: flex;
+    justify-content: center;
+}
+.input{
+    border-radius: 5px;
+    border: 1px solid grey;
+    margin-right: 5px;
+    padding: 4px;
+    outline: none;
+}
+.input:focus-visible, .input:focus{
+    border: 1px solid red;
+}
+.input-send{
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    background-color: white;
+    outline: none;
+}
+.input-send:active {
+    border: 1px solid red;
+    color: red;
+}
+.weather{
+    max-width: 405px;
+    width: 100%;
+    display: flex;
+    column-gap: 5px;
+}
+.weather-card{
+    width: 200px;
+    margin: 0 auto;
+    display: grid;
+    border: solid 1px grey;
+    padding: 10px;
+    border-radius: 10px;
+}
+.weather-card:hover{
+    border: red solid 1px;
+}
+.weather-card-name{
+    margin: 0;
+}
+.weather-card-temp{
+    font-size: 3rem;
+}
+.weather-card-temp > * {
+    font-size: initial;
+    position: relative;
+    top: -30%;
+}
+.weather-card-img{
+    margin: 0 auto 10px 0;
+    display: inline-block;
+    background-color: aquamarine;
+}
