@@ -1,10 +1,43 @@
+:root{
+    --p: #cfbaf0;
+    --s: #98f5e1;
+    --t: #a3c4f3;
+    --c: #fde4cf;
+    --q: #fbf8cc;
+    --pa: #d8e2dc;
+    --input:#ffffff;
+}
 *{
     font-family: 'Quicksand', sans-serif;
     box-sizing: border-box;
 }
-#app{
-    display: grid;
-    place-content: center;
+body{
+    margin: 0;
+    padding: 0;
+}
+main{
+    min-height: 100vh;
+    background-color: var(--q);
+    overflow: hidden;
+}
+header{
+    padding: 5px;
+    display: flex;
+}
+.loading{
+    color:grey;
+    position: absolute;
+    left: calc(50% - 40px);
+    top: 20px;
+}
+.see-on, .see-on *{
+    text-align: center;
+    color: grey;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+.see-on:hover{
+    text-decoration:grey underline;
 }
 .app{
     display: grid;
@@ -12,12 +45,19 @@
     place-content: center;
     row-gap: 10px;
 }
-.error-notFound{
-    position: absolute;
-    left: 5px;
-    top: 35px;
+.location-error{
     color: rgb(214, 119, 10);
     border: solid 1px orange;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+}
+.error-notFound{
+    color: rgb(214, 119, 10);
+    border: solid 1px orange;
+    position: absolute;
+    left: calc(50% - 110px);
+    top: 30px;
     text-align: center;
     border-radius: 5px;
     padding: 5px;
@@ -25,6 +65,7 @@
 .form{
     display: flex;
     justify-content: center;
+    margin-bottom: 30px;
 }
 .input{
     border-radius: 5px;
@@ -32,20 +73,21 @@
     margin-right: 5px;
     padding: 4px;
     outline: none;
+    background-color: var(--input);
 }
 .input:focus-visible, .input:focus{
-    border: 1px solid red;
+    border: 1px solid var(--t);
 }
 .input-send{
     padding: 4px;
     border-radius: 5px;
     border: 1px solid grey;
-    background-color: white;
+    background-color: var(--input);
     outline: none;
 }
 .input-send:active {
-    border: 1px solid red;
-    color: red;
+    border: 1px solid var(--t);
+    color: var(--t);
 }
 .weather{
     max-width: 405px;
@@ -57,12 +99,13 @@
     width: 200px;
     margin: 0 auto;
     display: grid;
-    border: solid 1px grey;
+    border: solid 2px var(--c);
     padding: 10px;
     border-radius: 10px;
+    background-color: var(--p);
 }
 .weather-card:hover{
-    border: red solid 1px;
+    border: 2px solid var(--t);
 }
 .weather-card-name{
     margin: 0;
@@ -78,5 +121,6 @@
 .weather-card-img{
     margin: 0 auto 10px 0;
     display: inline-block;
-    background-color: aquamarine;
+    background-color: rgba(206, 248, 241, 0.3);
+    border-radius: 30%;
 }

@@ -1,9 +1,6 @@
 import getData from "./getData";
-import render from "./render";
-import showError from "./showError";
 const sendData = ()=>
 {
-    let Render;
     let main;
     let cantFind;
     const Public = {
@@ -13,7 +10,6 @@ const sendData = ()=>
         }
     }
     const logic = ()=>{
-        cantFind = showError('no se encontro la busqueda', main.app);
         const send = document.createElement("button");
             send.className = "input-send";
             send.textContent = "search";
@@ -24,10 +20,12 @@ const sendData = ()=>
     }
     const action = async (event)=>{
         event.preventDefault();
-        cantFind.remove();
+        main.render.notFound(false);
+        main.render.loading(true);
         const data = await getData({cityName: main.country, key: main.key});
         if(!(data.name)){
-            cantFind.add();
+            main.render.loading(false);
+            main.render.notFound(true);
             return;
         }
         main.data = data;

@@ -40,10 +40,10 @@ const app = async({appNode, plugins = [], key})=>
             Data = await getData({
                 position:{lat: position.coords.latitude, lon: position.coords.longitude},
                 key
-            })
-            console.log(Data);
+            });
             Render.add();
-        });
+        }, (err)=>{Render.error(err.code);});
+    }else{
     }
 };
 export default app;
