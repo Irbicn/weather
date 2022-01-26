@@ -27,8 +27,15 @@ const render = ()=>{
         
         container.innerHTML = `
             <h3 class="weather-card-name">${data.name}</h3>
+            <span class="weather-card-country">${data.sys.country}</span>
             <span class="weather-card-temp">${temp}<span>°C</span></span>
-            <img height="70" width="70" src="${getImg(data.weather[0].icon)}" alt="${data.weather[0].description}" class="weather-card-img"/>
+            <img 
+                height="70" 
+                width="70" 
+                src="${getImg(data.weather[0].icon)}" 
+                alt="${data.weather[0].description}" 
+                class="weather-card-img"
+            />
             <span>Humedad: ${data.main.humidity}%</span>
             <span>Viento: ${wind} Km/h</span>
             <p class="weather-card-desc">${data.weather[0].description}</p>

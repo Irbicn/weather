@@ -96,6 +96,7 @@ header{
     column-gap: 5px;
 }
 .weather-card{
+    position: relative;
     width: 200px;
     margin: 0 auto;
     display: grid;
@@ -112,6 +113,12 @@ header{
 }
 .weather-card-name{
     margin: 0;
+}
+.weather-card-country{
+    position: absolute;
+    right:4px;
+    top: 0px;
+    color: white;
 }
 .weather-card-temp{
     font-size: 3rem;
