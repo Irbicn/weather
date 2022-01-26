@@ -37,6 +37,7 @@ const app = async({appNode, plugins = [], key})=>
     plugins.map(plugin => plugin.run(Public));
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(async function(position) {
+            Render.loading(true);
             Data = await getData({
                 position:{lat: position.coords.latitude, lon: position.coords.longitude},
                 key

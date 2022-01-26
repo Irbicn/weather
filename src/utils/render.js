@@ -37,12 +37,17 @@ const render = ()=>{
     }
     const Render = {
         add(){
-            Loading.remove();
             if(err){
                 err.remove();
                 err = null;
             }
             const container = card(main.data);
+            const size = document.body.offsetWidth;
+            Loading.remove();
+            if(size <= 420){
+                weather.innerHTML = '';
+                weather.appendChild(container);
+            }
             if(weather.children.length >= 2){
                 weather.lastChild.remove();
                 weather.prepend(container);
