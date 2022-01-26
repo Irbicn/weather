@@ -11,6 +11,7 @@ const render = ()=>{
         error.textContent = 'no se encontro la busqueda';
     let err;
     let main;
+   
     const Public = {
         run(app){
             main = app;
@@ -43,6 +44,11 @@ const render = ()=>{
                 err = null;
             }
             const container = card(main.data);
+            const size = document.body.offsetWidth;
+            if(size <= 400){
+                weather.innerHTML = '';
+                weather.appendChild(container);
+            }
             if(weather.children.length >= 2){
                 weather.lastChild.remove();
                 weather.prepend(container);
