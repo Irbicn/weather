@@ -104,6 +104,9 @@ header{
     border-radius: 10px;
     background-color: var(--p);
 }
+.weather-card-updated{
+    border-color: orange;
+}
 .weather-card:hover{
     border: 2px solid var(--t);
 }
