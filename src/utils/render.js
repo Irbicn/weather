@@ -35,25 +35,63 @@ const render = ()=>{
             `;
         return container;
     }
+    const update = (itm)=>{ 
+        const nodeUpdated = card(main.data);
+            nodeUpdated.classList.add("weather-card-updated");
+        weather.replaceChild(nodeUpdated, itm);
+        const updated = document.createElement('p');
+            updated.textContent = "Actualizado!";
+            updated.className = "loading";
+        main.app.appendChild(updated);
+        Loading.remove();
+        setTimeout(() => {
+            updated.remove();
+            nodeUpdated.classList.remove("weather-card-updated");
+        }, 500);
+    }
     const Render = {
         add(){
             if(err){
                 err.remove();
                 err = null;
             }
+            let upd = false;
+            Array.prototype.map.call(weather.children, item =>{
+                if(item.children[0].textContent === main.data.name){
+                    update(item);
+                    upd = true;
+                }
+            })
+            if(upd){
+                main.app.firstChild.firstChild.value = "";
+                main.app.firstChild.firstChild.focus();
+                return;
+            }
             const container = card(main.data);
             const size = document.body.offsetWidth;
             Loading.remove();
+            
             if(size <= 420){
                 weather.innerHTML = '';
                 weather.appendChild(container);
+                main.app.firstChild.firstChild.value = "";
+                return;
             }
             if(weather.children.length >= 2){
                 weather.lastChild.remove();
                 weather.prepend(container);
+                main.app.firstChild.firstChild.value = "";
+                main.app.firstChild.firstChild.focus();
+                return;
+            }
+            if(!weather.children[0]){
+                weather.prepend(container);
                 return;
             }
             weather.prepend(container);
+            
+            main.app.firstChild.firstChild.value = "";
+            main.app.firstChild.firstChild.focus();
         },
         loading(opt){
             if(opt){
